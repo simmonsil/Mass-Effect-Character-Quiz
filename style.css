@@ -1,0 +1,353 @@
+/* style.css
+ *  Author: Isaac Simmons
+ *  Date Created: 12-4-2022
+ *  Last Revised: 12-27-2022
+ *  Description: stylesheet for mass effect character quiz
+*/
+:root {
+    --page-background-color: #272727;
+    --text-color: #7fdfe7;
+    --background-color: #1781addd;
+    --border-color: #5bb5c8;
+    --hover-text-color: #ff9649;
+    --hover-background-color: #803c0f;
+    --hover-border-color: #e28546;
+    --selected-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--page-background-color);
+    color: #ddd;
+    font-family: 'Zen Dots', sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 1.6rem;
+    color: #a4c3cd;
+    text-align: center;
+    margin: 20px;
+}
+
+.intro-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #084675ee;
+    z-index: 1;
+}
+
+.prompt {
+    width: 100%;
+    max-width: 800px;
+    height: 50%;
+    background-color: var(--page-background-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prompt p {
+    margin: 0 10px;
+}
+
+.btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 3px solid var(--border-color);
+    height: 40px;
+    width: 300px;
+    font-size: 0.9rem;
+    font-family: 'Zen Dots', sans-serif;
+}
+
+#play {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn:hover {
+    background-color: var(--hover-background-color);
+    color: var(--hover-text-color);
+    border-color: var(--hover-border-color);
+    cursor: pointer;
+}
+
+@keyframes fade-out {
+    from {
+      opacity: 1;
+      z-index: 1;
+    }
+    to {
+      opacity: 0;
+      z-index: -1;
+    }
+}
+
+.hidden {
+    animation-name: fade-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+/* Renegade color scheme switch */
+/* .switch-container {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-color);
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: var(--hover-background-color);
+}
+  
+input:checked + .slider:before {
+    background-color: var(--hover-text-color);
+    transform: translateX(26px);
+} */
+
+/* Quiz Questions */
+h2 {
+    font-size: 1.2rem;
+}
+
+.question {
+    margin: 50px auto;
+    max-width: 700px;
+}
+
+.question-header {
+    text-align: center;
+    background-color: var(--background-color);
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border: 3px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.question-img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.answer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.answer {
+    width: 345px;
+    font-size: 0.9rem;
+    padding: 10px;
+    background-color: var(--background-color);
+    border: 3px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.flex-left {
+    margin-right: 5px;
+}
+
+.flex-right {
+    margin-left: 5px;
+}
+
+.flex-bottom {
+    margin-top: 10px;
+}
+
+@media(max-width: 750px) {
+    .answer-wrapper {
+        flex-direction: column;
+    }
+    .answer {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.answer:hover {
+    background-color: var(--hover-background-color);
+    color: var(--hover-text-color);
+    border-color: var(--hover-border-color);
+    cursor: pointer;
+}
+
+/* .renegade {
+    background-color: var(--hover-background-color);
+    color: var(--hover-text-color);
+    border-color: var(--hover-border-color);
+}
+
+.renegade:hover {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+} */
+
+.selected {
+    background-color: var(--hover-background-color);
+    color: var(--selected-color);
+    border-color: var(--selected-color);
+}
+
+.selected:hover {
+    background-color: var(--hover-background-color);
+    color: var(--selected-color);
+    border-color: var(--selected-color);
+}
+
+.char-modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #272727aa;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scale(0);
+}
+
+.char-modal-inner {
+    position: absolute;
+    height: 70%;
+    width: 75%;
+    max-width: 1000px;
+    min-width: 750px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #084675ee;
+    border-radius: 10%;
+    z-index: 1;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: 75%;
+    width: 100%;
+}
+
+.char-img {
+    width: auto;
+    margin: 20px 10px; 
+    border-radius: 20%;
+    border: 2px solid var(--border-color);
+}
+
+.char-desc {
+    margin: 20px 10px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10%;
+    background: #272727ee;
+    font-family: Bahnschrift, sans-serif;
+    font-size: 1.1rem;
+}
+
+#play-again {
+    display: block;
+    margin: 25px auto 0 auto;
+}
+
+
+@keyframes expand-in {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.open {
+    animation-name: expand-in;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes reduce {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+.close {
+    animation-name: reduce;
+    animation-duration: .5s;
+    animation-fill-mode: forwards
+}
+
+@media(max-width: 750px) {
+    .char-modal-inner {
+        width: 100%;
+        height: 100%;
+    }
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .char-img {
+        min-height: 0;
+    }
+    .char-desc {
+        max-width: 90%;
+        margin: 0;
+    }
+}
