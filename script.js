@@ -140,7 +140,7 @@ function showCharacter() {
 
     switch(key) {
         case "taliScore": 
-            charImg.setAttribute("src", "images/tali-cropped2.jpg");
+            charImg.setAttribute("src", "images/tali.jpg");
             charImg.setAttribute("alt", "tali");
             charDesc.innerText = "You are Tali'Zorah Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
             break;
