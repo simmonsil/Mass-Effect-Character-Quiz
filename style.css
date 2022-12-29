@@ -6,6 +6,7 @@
 */
 :root {
     --page-background-color: #272727;
+    --page-background-image: url("images/space-background.jpg");
     --text-color: #7fdfe7;
     --background-color: #1781addd;
     --border-color: #5bb5c8;
@@ -22,7 +23,11 @@
 }
 
 body {
-    background: var(--page-background-color);
+    background-image: var(--page-background-image);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: var(--page-background-color);
     color: #ddd;
     font-family: 'Zen Dots', sans-serif;
     overflow: hidden;
@@ -277,6 +282,7 @@ h2 {
     justify-content: center;
     height: 75%;
     width: 100%;
+    /* margin-top: 20px; */
 }
 
 .char-img {
