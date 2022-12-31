@@ -1,7 +1,7 @@
 /* style.css
  *  Author: Isaac Simmons
  *  Date Created: 12-4-2022
- *  Last Revised: 12-27-2022
+ *  Last Revised: 12-31-2022
  *  Description: stylesheet for mass effect character quiz
 */
 :root {
@@ -41,7 +41,7 @@ h1 {
 }
 
 .intro-modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

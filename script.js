@@ -1,7 +1,7 @@
 /* script.js
  *  Author: Isaac Simmons
  *  Date Created: 12-4-2022
- *  Last Revised: 12-28-2022
+ *  Last Revised: 12-31-2022
  *  Description: Script for the mass effect character quiz
 */
 
@@ -10,11 +10,11 @@ const body = document.querySelector("body");
 const introModal = document.querySelector("#intro-modal");
 const playBtn = document.querySelector("#play");
 
-const colorToggle = document.getElementById("color-toggle");
+// const colorToggle = document.getElementById("color-toggle");
 
 const questions = document.getElementsByClassName("question"),
-questionHeaders = document.getElementsByClassName("question-header"),
-answers = document.getElementsByClassName("answer"),
+// questionHeaders = document.getElementsByClassName("question-header"),
+// answers = document.getElementsByClassName("answer"),
 q1 = document.getElementById("q1"),
 q2 = document.getElementById("q2"),
 q3 = document.getElementById("q3"),
@@ -39,12 +39,15 @@ q10Answers = document.getElementsByClassName("q10-answers")
 const charModal = document.getElementById("char-modal");
 const playAgainBtn = document.getElementById("play-again");
 
-let taliScore = 0;
-let garrusScore = 0;
-let javikScore = 0; 
-let liaraScore = 0;
-let wrexScore = 0;
-let legionScore = 0;
+let taliScore = 0,
+garrusScore = 0,
+javikScore = 0, 
+liaraScore = 0,
+wrexScore = 0,
+legionScore = 0,
+mirandaScore = 0,
+jacobScore = 0;
+//TODO: add more characters
 
 /****** event listeners ******/
 // colorToggle.addEventListener("change", (e) => {
@@ -60,7 +63,8 @@ playBtn.addEventListener("click", (e) => {
     introModal.classList.toggle("hidden");
     body.style.overflow = "auto";
 });
-//add event listeners to every answer button
+
+//add event listeners to each set of answer buttons
 answerEvent(q1Answers, q1);
 answerEvent(q2Answers, q2);
 answerEvent(q3Answers, q3);
@@ -92,6 +96,9 @@ document.addEventListener("click", (e) => {
         liaraScore = 0;
         wrexScore = 0;
         legionScore = 0;
+        mirandaScore = 0;
+        jacobScore = 0;
+        //TODO: add more characters
     }
 });
 
@@ -130,8 +137,11 @@ function showCharacter() {
         liaraScore += Number(selected[i].dataset.liara);
         wrexScore += Number(selected[i].dataset.wrex);
         legionScore += Number(selected[i].dataset.legion);
+        mirandaScore += Number(selected[i].dataset.miranda);
+        jacobScore += Number(selected[i].dataset.jacob);
+        //TODO: add more characters
     }
-    let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore }
+    let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore, mirandaScore, jacobScore }         //TODO: add more characters
         
     const maxVal = Math.max(...Object.values(charScores));
     const key = Object.keys(charScores).find(key => charScores[key] === maxVal);
@@ -174,6 +184,18 @@ function showCharacter() {
             charImg.setAttribute("alt", "legion");
             charDesc.innerText = "You are Legion Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
             break;
+        
+        case "mirandaScore":
+            charImg.setAttribute("src", "images/miranda.jpg");
+            charImg.setAttribute("alt", "miranda");
+            charDesc.innerText = "You are Miranda Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;    
+        case "jacobScore":
+            charImg.setAttribute("src", "");
+            charImg.setAttribute("alt", "jacob");
+            charDesc.innerText = "You are Jacob Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;  
+        //TODO: add more characters
     }
     console.log(charScores);
     console.log(key, maxVal);
