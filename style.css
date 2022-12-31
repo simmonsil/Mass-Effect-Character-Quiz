@@ -356,5 +356,6 @@ h2 {
     .char-desc {
         max-width: 90%;
         margin: 0;
+        font-size: 1rem;
     }
 }
