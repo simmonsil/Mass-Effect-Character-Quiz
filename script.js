@@ -1,7 +1,7 @@
 /* script.js
  *  Author: Isaac Simmons
  *  Date Created: 12-4-2022
- *  Last Revised: 12-31-2022
+ *  Last Revised: 1-2-2022
  *  Description: Script for the mass effect character quiz
 */
 
@@ -14,7 +14,10 @@ const playBtn = document.querySelector("#play");
 
 const questions = document.getElementsByClassName("question"),
 // questionHeaders = document.getElementsByClassName("question-header"),
-// answers = document.getElementsByClassName("answer"),
+answers = document.getElementsByClassName("answer"),
+
+// TODO find a way to optimize this and the event listeners with a loop of some kind
+//probably get rid of the questions and make an array for the collections of answers
 q1 = document.getElementById("q1"),
 q2 = document.getElementById("q2"),
 q3 = document.getElementById("q3"),
@@ -25,6 +28,11 @@ q7 = document.getElementById("q7"),
 q8 = document.getElementById("q8"),
 q9 = document.getElementById("q9"),
 q10 = document.getElementById("q10"),
+q11 = document.getElementById("q11"),
+q12 = document.getElementById("q12"),
+q13 = document.getElementById("q13"),
+q14 = document.getElementById("q14"),
+q15 = document.getElementById("q15"),
 q1Answers = document.getElementsByClassName("q1-answers"),
 q2Answers = document.getElementsByClassName("q2-answers"),
 q3Answers = document.getElementsByClassName("q3-answers"),
@@ -34,7 +42,12 @@ q6Answers = document.getElementsByClassName("q6-answers"),
 q7Answers = document.getElementsByClassName("q7-answers"),
 q8Answers = document.getElementsByClassName("q8-answers"),
 q9Answers = document.getElementsByClassName("q9-answers"),
-q10Answers = document.getElementsByClassName("q10-answers")
+q10Answers = document.getElementsByClassName("q10-answers"),
+q11Answers = document.getElementsByClassName("q11-answers"),
+q12Answers = document.getElementsByClassName("q12-answers"),
+q13Answers = document.getElementsByClassName("q13-answers"),
+q14Answers = document.getElementsByClassName("q14-answers"),
+q15Answers = document.getElementsByClassName("q15-answers")
 
 const charModal = document.getElementById("char-modal");
 const playAgainBtn = document.getElementById("play-again");
@@ -65,6 +78,7 @@ playBtn.addEventListener("click", (e) => {
 });
 
 //add event listeners to each set of answer buttons
+//TODO improve with loop
 answerEvent(q1Answers, q1);
 answerEvent(q2Answers, q2);
 answerEvent(q3Answers, q3);
@@ -75,6 +89,11 @@ answerEvent(q7Answers, q7);
 answerEvent(q8Answers, q8);
 answerEvent(q9Answers, q9);
 answerEvent(q10Answers, q10);
+answerEvent(q11Answers, q11);
+answerEvent(q12Answers, q12);
+answerEvent(q13Answers, q13);
+answerEvent(q14Answers, q14);
+answerEvent(q15Answers, q15);
 
 document.addEventListener("click", (e) => {
     if(e.target === playAgainBtn) {
@@ -131,6 +150,7 @@ function answerEvent(qAnswers, q) {
 function showCharacter() {
     let selected = document.getElementsByClassName("selected");
     for(let i = 0; i < selected.length; i++) {
+        //get the char scores from the data attributes of the selected questions
         taliScore += Number(selected[i].dataset.tali);
         garrusScore += Number(selected[i].dataset.garrus);
         javikScore += Number(selected[i].dataset.javik);
@@ -142,8 +162,9 @@ function showCharacter() {
         //TODO: add more characters
     }
     let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore, mirandaScore, jacobScore }         //TODO: add more characters
-        
+    //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
+    //return which character that max value belongs to
     const key = Object.keys(charScores).find(key => charScores[key] === maxVal);
     const charImg = document.getElementById("char-img");
     const charDesc = document.getElementById("char-desc");
@@ -197,8 +218,10 @@ function showCharacter() {
             break;  
         //TODO: add more characters
     }
+    //log the char scores
     console.log(charScores);
     console.log(key, maxVal);
+    //show the modal and prevent scrolling
     charModal.classList.remove("close");
     charModal.classList.add("open");
     body.style.overflow = "hidden";
