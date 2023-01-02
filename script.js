@@ -61,6 +61,8 @@ legionScore = 0,
 mirandaScore = 0,
 jacobScore = 0;
 mordinScore = 0;
+ashleyScore = 0;
+kaidanScore = 0;
 //TODO: add more characters
 
 /****** event listeners ******/
@@ -119,6 +121,8 @@ document.addEventListener("click", (e) => {
         mirandaScore = 0;
         jacobScore = 0;
         mordinScore = 0;
+        ashleyScore = 0;
+        kaidanScore = 0;
         //TODO: add more characters
     }
 });
@@ -162,9 +166,11 @@ function showCharacter() {
         mirandaScore += Number(selected[i].dataset.miranda);
         jacobScore += Number(selected[i].dataset.jacob);
         mordinScore += Number(selected[i].dataset.mordin);
+        ashleyScore += Number(selected[i].dataset.ashley);
+        kaidanScore += Number(selected[i].dataset.kaidan);
         //TODO: add more characters
     }
-    let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore, mirandaScore, jacobScore, mordinScore }         //TODO: add more characters
+    let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore, mirandaScore, jacobScore, mordinScore, ashleyScore, kaidanScore }         //TODO: add more characters
     //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
     //return which character that max value belongs to
@@ -225,7 +231,19 @@ function showCharacter() {
             charImg.setAttribute("src", "images/mordin.jpg");
             charImg.setAttribute("alt", "mordin");
             charDesc.innerText = "You are Mordin Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
-            break;    
+            break;
+
+        case "ashleyScore":
+            charImg.setAttribute("src", "images/ashley.jpg");
+            charImg.setAttribute("alt", "ashley");
+            charDesc.innerText = "You are Ashley Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;  
+
+        case "kaidanScore":
+            charImg.setAttribute("src", "images/kaidan.jpg");
+            charImg.setAttribute("alt", "kaidan");
+            charDesc.innerText = "You are Kaidan Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;        
         //TODO: add more characters
     }
     //log the char scores
