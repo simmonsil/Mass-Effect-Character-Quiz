@@ -59,15 +59,19 @@ liaraScore = 0,
 wrexScore = 0,
 legionScore = 0,
 mirandaScore = 0,
-jacobScore = 0;
-mordinScore = 0;
-ashleyScore = 0;
-kaidanScore = 0;
-samaraScore = 0;
-thaneScore = 0;
-zaeedScore = 0;
-kasumiScore = 0;
-illusiveManScore = 0;
+jacobScore = 0,
+mordinScore = 0,
+ashleyScore = 0,
+kaidanScore = 0,
+samaraScore = 0,
+thaneScore = 0,
+zaeedScore = 0,
+kasumiScore = 0,
+illusiveManScore = 0,
+jamesScore = 0,
+gruntScore = 0,
+jackScore = 0,
+jokerScore = 0;
 //TODO: add more characters
 
 /****** event listeners ******/
@@ -133,6 +137,10 @@ document.addEventListener("click", (e) => {
         zaeedScore = 0;
         kasumiScore = 0;
         illusiveManScore = 0;
+        jamesScore = 0;
+        gruntScore = 0;
+        jackScore = 0;
+        jokerScore = 0;
         //TODO: add more characters
     }
 });
@@ -183,6 +191,10 @@ function showCharacter() {
         zaeedScore += Number(selected[i].dataset.zaeed);
         kasumiScore += Number(selected[i].dataset.kasumi);
         illusiveManScore += Number(selected[i].dataset.illusiveMan);
+        jamesScore += Number(selected[i].dataset.james);
+        gruntScore += Number(selected[i].dataset.grunt);
+        jackScore += Number(selected[i].dataset.jack);
+        jokerScore += Number(selected[i].dataset.joker);
         //TODO: add more characters
     }
     let charScores = {
@@ -201,7 +213,11 @@ function showCharacter() {
         thaneScore,
         zaeedScore,
         kasumiScore,
-        illusiveManScore
+        illusiveManScore,
+        jamesScore,
+        gruntScore,
+        jackScore,
+        jokerScore
     }         //TODO: add more characters
     //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
@@ -305,7 +321,31 @@ function showCharacter() {
             charImg.setAttribute("src", "images/kasumi.jpg");
             charImg.setAttribute("alt", "kasumi");
             charDesc.innerText = "You are Kasumi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
-            break;       
+            break;
+        
+        case "jamesScore":
+            charImg.setAttribute("src", "images/james.jpg");
+            charImg.setAttribute("alt", "james");
+            charDesc.innerText = "You are James Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;   
+
+        case "gruntScore":
+            charImg.setAttribute("src", "images/grunt.jpg");
+            charImg.setAttribute("alt", "grunt");
+            charDesc.innerText = "You are Grunt Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;   
+
+        case "jackScore":
+            charImg.setAttribute("src", "images/jack.jpg");
+            charImg.setAttribute("alt", "jack");
+            charDesc.innerText = "You are Jack Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;   
+
+        case "jokerScore":
+            charImg.setAttribute("src", "images/joker.jpg");
+            charImg.setAttribute("alt", "joker");
+            charDesc.innerText = "You are Joker Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;   
         //TODO: add more characters
     }
     //log the char scores
