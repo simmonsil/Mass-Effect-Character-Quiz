@@ -63,6 +63,9 @@ jacobScore = 0;
 mordinScore = 0;
 ashleyScore = 0;
 kaidanScore = 0;
+samaraScore = 0;
+thaneScore = 0;
+illusiveManScore = 0;
 //TODO: add more characters
 
 /****** event listeners ******/
@@ -123,6 +126,9 @@ document.addEventListener("click", (e) => {
         mordinScore = 0;
         ashleyScore = 0;
         kaidanScore = 0;
+        samaraScore = 0;
+        thaneScore = 0;
+        illusiveManScore = 0;
         //TODO: add more characters
     }
 });
@@ -168,9 +174,27 @@ function showCharacter() {
         mordinScore += Number(selected[i].dataset.mordin);
         ashleyScore += Number(selected[i].dataset.ashley);
         kaidanScore += Number(selected[i].dataset.kaidan);
+        samaraScore += Number(selected[i].dataset.samara);
+        thaneScore += Number(selected[i].dataset.thane);
+        illusiveManScore += Number(selected[i].dataset.illusiveMan);
         //TODO: add more characters
     }
-    let charScores = {taliScore, garrusScore, javikScore, liaraScore, wrexScore, legionScore, mirandaScore, jacobScore, mordinScore, ashleyScore, kaidanScore }         //TODO: add more characters
+    let charScores = {
+        taliScore, 
+        garrusScore, 
+        javikScore, 
+        liaraScore, 
+        wrexScore, 
+        legionScore, 
+        mirandaScore, 
+        jacobScore, 
+        mordinScore, 
+        ashleyScore, 
+        kaidanScore, 
+        samaraScore, 
+        thaneScore,
+        illusiveManScore
+    }         //TODO: add more characters
     //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
     //return which character that max value belongs to
@@ -243,7 +267,25 @@ function showCharacter() {
             charImg.setAttribute("src", "images/kaidan.jpg");
             charImg.setAttribute("alt", "kaidan");
             charDesc.innerText = "You are Kaidan Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
-            break;        
+            break;  
+        
+        case "samaraScore":
+            charImg.setAttribute("src", "images/samara.jpg");
+            charImg.setAttribute("alt", "samara");
+            charDesc.innerText = "You are Samara Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break; 
+
+        case "thaneScore":
+            charImg.setAttribute("src", "images/thane.jpg");
+            charImg.setAttribute("alt", "thane");
+            charDesc.innerText = "You are Thane Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;
+            
+        case "illusiveManScore":
+            charImg.setAttribute("src", "images/illusive-man.jpg");
+            charImg.setAttribute("alt", "illusive man");
+            charDesc.innerText = "You are the Illusive Man Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;           
         //TODO: add more characters
     }
     //log the char scores
