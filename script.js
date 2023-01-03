@@ -1,7 +1,7 @@
 /* script.js
  *  Author: Isaac Simmons
  *  Date Created: 12-4-2022
- *  Last Revised: 1-2-2022
+ *  Last Revised: 1-3-2022
  *  Description: Script for the mass effect character quiz
 */
 
