@@ -10,10 +10,10 @@ const body = document.querySelector("body");
 const introModal = document.querySelector("#intro-modal");
 const playBtn = document.querySelector("#play");
 
-// const colorToggle = document.getElementById("color-toggle");
+const colorToggle = document.getElementById("color-toggle");
 
 const questions = document.getElementsByClassName("question"),
-// questionHeaders = document.getElementsByClassName("question-header"),
+questionHeaders = document.getElementsByClassName("question-header"),
 answers = document.getElementsByClassName("answer"),
 
 // TODO find a way to optimize this and the event listeners with a loop of some kind
@@ -72,17 +72,33 @@ jamesScore = 0,
 gruntScore = 0,
 jackScore = 0,
 jokerScore = 0;
-//TODO: add more characters
 
 /****** event listeners ******/
-// colorToggle.addEventListener("change", (e) => {
-//     Array.from(answers).forEach((answer) => { 
-//         answer.classList.toggle("renegade");
-//     })
-//     Array.from(questionHeaders).forEach((header) => { 
-//         header.classList.toggle("renegade");
-//     })
-// });
+colorToggle.addEventListener("change", (e) => {
+    if(colorToggle.checked) {
+        Array.from(answers).forEach((answer) => { 
+            answer.classList.add("renegade");
+        });
+        Array.from(questionHeaders).forEach((header) => { 
+            header.classList.add("renegade");
+        });
+        (document.querySelectorAll(".selected")).forEach((el) => {
+            el.classList.remove("paragon-selected");
+            el.classList.add("renegade-selected");
+        });
+    } else {
+        Array.from(answers).forEach((answer) => { 
+            answer.classList.remove("renegade");
+        });
+        Array.from(questionHeaders).forEach((header) => { 
+            header.classList.remove("renegade");
+        });
+        (document.querySelectorAll(".selected")).forEach((el) => {
+            el.classList.remove("renegade-selected");
+            el.classList.add("paragon-selected");
+        });
+    }
+});
 
 playBtn.addEventListener("click", (e) => {
     introModal.classList.toggle("hidden");
@@ -114,7 +130,11 @@ document.addEventListener("click", (e) => {
             questions[i].classList.remove("answered");
         }
         //get all the elements that were selected and unselect them.
-        (document.querySelectorAll(".selected")).forEach((el) => el.classList.remove("selected"));
+        (document.querySelectorAll(".selected")).forEach((el) => {
+            el.classList.remove("selected")
+            el.classList.remove("paragon-selected")
+            el.classList.remove("renegade-selected")
+        });
         //scroll back to top and close character modal
         window.scrollTo(0, 0);
         charModal.classList.remove("open");
@@ -141,7 +161,6 @@ document.addEventListener("click", (e) => {
         gruntScore = 0;
         jackScore = 0;
         jokerScore = 0;
-        //TODO: add more characters
     }
 });
 
@@ -154,9 +173,17 @@ function answerEvent(qAnswers, q) {
             for(let i = 0; i < qAnswers.length; i++) {
                 //clear selected so the user can make a new choice for a question
                 qAnswers[i].classList.remove("selected")
+                qAnswers[i].classList.remove("renegade-selected")
+                qAnswers[i].classList.remove("paragon-selected")
             }
             //add selected class to highlight the answer the user chose
             e.target.classList.add("selected");
+            if(colorToggle.checked) {
+                e.target.classList.add("renegade-selected");
+            } else {
+                e.target.classList.add("paragon-selected");
+            }
+            
             //mark that question as answered
             q.classList.add("answered");
 
@@ -195,7 +222,6 @@ function showCharacter() {
         gruntScore += Number(selected[i].dataset.grunt);
         jackScore += Number(selected[i].dataset.jack);
         jokerScore += Number(selected[i].dataset.joker);
-        //TODO: add more characters
     }
     let charScores = {
         taliScore, 
@@ -218,7 +244,7 @@ function showCharacter() {
         gruntScore,
         jackScore,
         jokerScore
-    }         //TODO: add more characters
+    }
     //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
     //return which character that max value belongs to
@@ -346,7 +372,6 @@ function showCharacter() {
             charImg.setAttribute("alt", "joker");
             charDesc.innerText = "You are Joker Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
             break;   
-        //TODO: add more characters
     }
     //log the char scores
     console.log(charScores);

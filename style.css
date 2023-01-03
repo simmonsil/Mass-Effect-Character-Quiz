@@ -13,6 +13,12 @@
     --hover-text-color: #ff9649;
     --hover-background-color: #803c0f;
     --hover-border-color: #e28546;
+    --renegade-background-color: #803c0f;
+    --renegade-text-color: #ff9649;
+    --renegade-border-color: #e28546;
+    --renegade-hover-text-color: #a3fa36;
+    --renegade-hover-background-color: #326a2d;
+    --renegade-hover-border-color: #8ac460;
     --selected-color: #ddd;
 }
 
@@ -107,10 +113,12 @@ h1 {
 }
 
 /* Renegade color scheme switch */
-/* .switch-container {
+.switch-container {
     position: absolute;
     top: 10px;
     right: 50px;
+    display: flex;
+    justify-content: center;
 }
 .switch {
     position: relative;
@@ -154,7 +162,12 @@ input:checked + .slider {
 input:checked + .slider:before {
     background-color: var(--hover-text-color);
     transform: translateX(26px);
-} */
+}
+
+.switch-label {
+    display: inline-block;
+    margin: 0 10px;
+}
 
 /* Quiz Questions */
 h2 {
@@ -220,6 +233,14 @@ h2 {
         width: 100%;
         margin: 0;
     }
+    /* snap color switch to center on smaller screens */
+    .switch-container {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .switch-label {
+        font-size: 0.9rem;
+    }
 }
 
 .answer:hover {
@@ -229,30 +250,45 @@ h2 {
     cursor: pointer;
 }
 
-/* .renegade {
-    background-color: var(--hover-background-color);
-    color: var(--hover-text-color);
-    border-color: var(--hover-border-color);
+/* colors for renegade color scheme */
+.renegade {
+    background-color: var(--renegade-background-color);
+    color: var(--renegade-text-color);
+    border-color: var(--renegade-border-color);
 }
 
-.renegade:hover {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border-color: var(--border-color);
-} */
+.answer.renegade:hover {
+    background-color: var(--renegade-hover-background-color);
+    color: var(--renegade-hover-text-color);
+    border-color: var(--renegade-hover-border-color);
+} 
 
-.selected {
+.renegade-selected {
+    border-color: var(--selected-color);
+    color: var(--selected-color);
+    background-color: var(--renegade-hover-background-color);
+}
+
+.answer.renegade-selected:hover {
+    border-color: var(--selected-color);
+    color: var(--selected-color);
+    background-color: var(--renegade-hover-background-color);
+}
+
+/* selected answer colors for the default paragon color scheme */
+.paragon-selected {
     background-color: var(--hover-background-color);
     color: var(--selected-color);
     border-color: var(--selected-color);
 }
 
-.selected:hover {
+.paragon-selected:hover {
     background-color: var(--hover-background-color);
     color: var(--selected-color);
     border-color: var(--selected-color);
 }
 
+/* character modal */
 .char-modal {
     position: fixed;
     height: 100%;
