@@ -65,6 +65,8 @@ ashleyScore = 0;
 kaidanScore = 0;
 samaraScore = 0;
 thaneScore = 0;
+zaeedScore = 0;
+kasumiScore = 0;
 illusiveManScore = 0;
 //TODO: add more characters
 
@@ -128,6 +130,8 @@ document.addEventListener("click", (e) => {
         kaidanScore = 0;
         samaraScore = 0;
         thaneScore = 0;
+        zaeedScore = 0;
+        kasumiScore = 0;
         illusiveManScore = 0;
         //TODO: add more characters
     }
@@ -176,6 +180,8 @@ function showCharacter() {
         kaidanScore += Number(selected[i].dataset.kaidan);
         samaraScore += Number(selected[i].dataset.samara);
         thaneScore += Number(selected[i].dataset.thane);
+        zaeedScore += Number(selected[i].dataset.zaeed);
+        kasumiScore += Number(selected[i].dataset.kasumi);
         illusiveManScore += Number(selected[i].dataset.illusiveMan);
         //TODO: add more characters
     }
@@ -193,6 +199,8 @@ function showCharacter() {
         kaidanScore, 
         samaraScore, 
         thaneScore,
+        zaeedScore,
+        kasumiScore,
         illusiveManScore
     }         //TODO: add more characters
     //find max value of the character scores
@@ -285,7 +293,19 @@ function showCharacter() {
             charImg.setAttribute("src", "images/illusive-man.jpg");
             charImg.setAttribute("alt", "illusive man");
             charDesc.innerText = "You are the Illusive Man Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
-            break;           
+            break; 
+
+        case "zaeedScore":
+            charImg.setAttribute("src", "images/zaeed.jpg");
+            charImg.setAttribute("alt", "zaeed");
+            charDesc.innerText = "You are Zaeed Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;    
+
+        case "kasumiScore":
+            charImg.setAttribute("src", "images/kasumi.jpg");
+            charImg.setAttribute("alt", "kasumi");
+            charDesc.innerText = "You are Kasumi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            break;       
         //TODO: add more characters
     }
     //log the char scores
