@@ -35,7 +35,7 @@ body {
     background-attachment: fixed;
     background-color: var(--page-background-color);
     color: #ddd;
-    font-family: 'Zen Dots', sans-serif;
+    font-family: 'Zen Dots', "Arial Black", sans-serif;
     overflow: hidden;
 }
 
@@ -78,7 +78,7 @@ h1 {
     height: 40px;
     width: 300px;
     font-size: 0.9rem;
-    font-family: 'Zen Dots', sans-serif;
+    font-family: 'Zen Dots', "Arial Black", sans-serif;
 }
 
 #play {
