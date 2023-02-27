@@ -274,7 +274,7 @@ function showCharacter() {
         case "liaraScore":
             charImg.setAttribute("src", "images/liara.jpg");
             charImg.setAttribute("alt", "liara");
-            charDesc.innerText = "You are Liara Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, impedit. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est. Placeat nihil, harum est quisquam officia, temporibus mollitia nostrum architecto vitae dolores odit dolorem fugit reprehenderit dicta in! Natus, est."
+            charDesc.innerText = "You are Liara. You are kind and gentle to those around you. Your friends are essential to you, and you always strive to make others that you love happy. You also know how to handle yourself if you find yourself in a tough situation. Hard work is something you enjoy, and you are always looking to improve your efficiency in any form that you can. Curiosity is also a big part of your personality, always seeking answers to questions. Finally, you also are a very hopeful person, believing that there is good in most people and that with enough effort, good things can always be achieved."
             break;
 
         case "wrexScore":
