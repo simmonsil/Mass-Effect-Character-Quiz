@@ -234,7 +234,7 @@ h2 {
 
     .answer {
         width: 100%;
-        margin: 0;
+        margin: 0 !important;
     }
 
     /* snap color switch to center on smaller screens */

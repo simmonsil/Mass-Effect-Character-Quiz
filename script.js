@@ -149,8 +149,8 @@ function answerEvent(qAnswers, q) {
     }
 }
 
-//show the character modal and show the user what character they are
-function showCharacter() {
+//Add all the character scores up from the selected answers
+function tallyScores() {
     let selected = document.getElementsByClassName("selected");
     for (let i = 0; i < selected.length; i++) {
         //get the char scores from the data attributes of the selected questions
@@ -175,7 +175,11 @@ function showCharacter() {
         charScores.jack += Number(selected[i].dataset.jack);
         charScores.joker += Number(selected[i].dataset.joker);
     }
+}
 
+//show the character modal and show the user what character they are
+function showCharacter() {
+    tallyScores();
     //find max value of the character scores
     const maxVal = Math.max(...Object.values(charScores));
     //return which character that max value belongs to
