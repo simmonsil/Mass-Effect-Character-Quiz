@@ -1,7 +1,7 @@
 /* script.js
  *  Author: Isaac Simmons
  *  Date Created: 12-4-2022
- *  Last Revised: 6-24-2022
+ *  Last Revised: 6-24-2023
  *  Description: Script for the mass effect character quiz
 */
 
@@ -131,7 +131,8 @@ function answerEvent(qAnswers, q) {
             e.target.classList.add("selected");
             if (colorToggle.checked) {
                 e.target.classList.add("renegade-selected");
-            } else {
+            }
+            else {
                 e.target.classList.add("paragon-selected");
             }
 
